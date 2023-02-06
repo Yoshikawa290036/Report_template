@@ -1,0 +1,69 @@
+\RequirePackage{plautopatch}
+
+\documentclass[12pt,a4j]{jarticle}
+% \documentclass[10pt,a4j]{jarticle}
+
+% \documentclass[12pt,a4j,draft]{jarticle}
+
+\usepackage{setspace}
+\usepackage{url}
+\usepackage{here}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage[title]{appendix}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{cases}
+\usepackage{siunitx}
+
+\usepackage[hang,small,bf]{caption}
+\usepackage[subrefformat=parens]{subcaption}
+\captionsetup{compatibility=false}
+
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Table}
+\renewcommand{\refname}{参考文献}
+
+
+% \makeatletter
+% 	\renewcommand{\theequation}{
+% 	\thesection.\arabic{equation}}
+% 	\@addtoreset{equation}{section}
+% 	\renewcommand{\thefigure}{
+% 	\thesection.\arabic{figure}}
+% 	\@addtoreset{figure}{section}
+% 	\renewcommand{\thetable}{
+% 	\thesection.\arabic{table}}
+% 	\@addtoreset{table}{section}
+% \makeatother
+
+
+\begin{document}
+\input{0-Cover/cover.tex}
+\newpage
+
+\tableofcontents
+\newpage
+\pagestyle{fancy}
+\rhead{}
+\lhead{\leftmark}
+\cfoot{\thepage}
+\rfoot{}
+\renewcommand{\footrulewidth}{0.4pt}
+\input{1-Background/background.tex}
+\clearpage
+\input{2-Methods/methods.tex}
+\clearpage
+\input{3-Results/3-results.tex}
+\newpage
+\input{4-Fin/4-fin.tex}
+\clearpage
+% \input{6-Acknowledgement/acknowledgement.tex}
+% \newpage
+\input{X-Reference/references.tex}
+\end{document}

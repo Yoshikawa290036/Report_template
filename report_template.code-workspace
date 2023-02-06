@@ -1,0 +1,89 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "latex-workshop.intellisense.package.enabled": true,
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.clean.fileTypes": [
+      "main.aux",
+      "main.bbl",
+      "main.blg",
+      "main.toc",
+      "main.log",
+      "main.dvi",
+      "main.synctex.gz",
+      "indent.log",
+      "*/indent.log"
+    ],
+
+    "latex-workshop.latex.autoBuild.run": "never",
+
+    "latex-workshop.latex.tools": [
+      {
+        "name": "pyref",
+        "command": "py",
+        "args": ["X-Reference/reffig.py"]
+      },
+      {
+        "name": "platex",
+        "command": "wsl.exe",
+        "args": [
+          "platex",
+          "-kanji=utf8",
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "main.tex"
+        ]
+      },
+      {
+        "name": "pblatex",
+        "command": "wsl.exe",
+        "args": ["pbibtex", "-kanji=utf8", "./main"]
+      },
+      {
+        "name": "dvipdfmx",
+        "command": "wsl.exe",
+        "args": ["dvipdfmx", "-f", "ptex-ipa.map", "-I", "24", "main.dvi"]
+      },
+      {
+        "name": "git-add",
+        "command": "git",
+        "args": ["add", "."]
+      },
+      {
+        "name": "git-commit",
+        "command": "git",
+        "args": ["commit", "-m", "auto commit"]
+      },
+      {
+        "name": "git-push",
+        "command": "git",
+        "args": ["push", "origin", "main"]
+      },
+    ],
+
+    "latex-workshop.latex.recipes": [
+      {
+        "name": "make_latex",
+        "tools": [
+          "pyref",
+          "platex",
+          "pblatex",
+          "platex",
+          "platex",
+          // "platex",
+          "dvipdfmx",
+          // "git-add",
+          // "git-commit",
+          // "git-push"
+        ]
+      }
+    ],
+    "latex-workshop.bibtex-format.sort.enabled": true,
+    "latex-workshop.bibtex-format.tab": "tab"
+  }
+}
